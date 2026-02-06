@@ -1,0 +1,8 @@
+type: saucedemo
+base_url: "https://www.saucedemo.com"
+
+auth:
+  method: form
+  user:
+    username: "standard_user"
+    password: "secret_sauce"

@@ -1,0 +1,13 @@
+type: redmine
+base_url: "http://localhost:8080"
+
+auth:
+  method: form
+  admin:
+    username: "admin"
+    password: "admin"
+
+assets:
+  openapi_yaml: "../../redmine_api_specification.yaml"
+  openapi_json: "../../redmine_api_specification.json"
+  user_manual_pdf: "../../redmnine_user_manual.pdf"
