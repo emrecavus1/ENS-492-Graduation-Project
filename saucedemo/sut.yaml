@@ -1,0 +1,28 @@
+type: saucedemo
+base_url: "https://www.saucedemo.com"
+
+auth:
+  method: form
+  user:
+    username: "standard_user"
+    password: "secret_sauce"
+
+test_users:
+  standard_user:
+    password: "secret_sauce"
+    description: "Normal user, all features work"
+  locked_out_user:
+    password: "secret_sauce"
+    description: "Cannot login - locked out"
+  problem_user:
+    password: "secret_sauce"
+    description: "Experiences UI bugs"
+  performance_glitch_user:
+    password: "secret_sauce"
+    description: "Experiences slow page loads"
+  error_user:
+    password: "secret_sauce"
+    description: "Experiences checkout errors"
+  visual_user:
+    password: "secret_sauce"
+    description: "Experiences visual glitches"

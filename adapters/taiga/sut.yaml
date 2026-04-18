@@ -1,0 +1,14 @@
+type: taiga
+base_url: "http://localhost:9000"
+api_base: "http://localhost:9000/api/v1"
+
+auth:
+  method: jwt
+  credentials:
+    username: "admin"
+    password: "123123"
+  token_endpoint: "/api/v1/auth"
+
+docker:
+  compose_file: "taiga-docker/docker-compose.yml"
+  backend_container: "taiga-docker-taiga-back-1"

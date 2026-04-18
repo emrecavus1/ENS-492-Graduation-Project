@@ -1,0 +1,2111 @@
+{
+  "generated_at": "2026-03-28T23:40:51.062077",
+  "coverage": {
+    "available": true,
+    "total_controllers": 48,
+    "zero_coverage_count": 1,
+    "well_covered_count": 46,
+    "overall_coverage_percent": 94.47,
+    "zero_coverage_controllers": [
+      "redmine_plugin_controller_generator"
+    ]
+  },
+  "api_documentation": {
+    "total_controllers": 47,
+    "total_routes": 144,
+    "routes_by_method": {
+      "GET": 116,
+      "POST": 22,
+      "PUT": 1,
+      "PATCH": 0,
+      "DELETE": 5
+    },
+    "routes_requiring_auth": 88,
+    "routes_requiring_xhr": 10,
+    "routes_with_params": 23,
+    "unsafe_routes": 7,
+    "controllers": {
+      "users_controller": {
+        "display_name": "Users",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "description": "List users",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/users/:id",
+            "description": "Show user",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "User.find_by(login: 'admin') || User.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/users/new",
+            "description": "New user form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/users",
+            "description": "Create user",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "GET",
+            "path": "/users/:id/edit",
+            "description": "Edit user form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "User.find_by(login: 'admin') || User.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/users/context_menu",
+            "description": "Users context menu",
+            "requires_auth": true,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 6,
+        "auth_required_routes": 5,
+        "xhr_routes": 1
+      },
+      "timelog_controller": {
+        "display_name": "Timelog",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/time_entries",
+            "description": "List time entries",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/time_entries/new",
+            "description": "New time entry form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/time_entries",
+            "description": "Create time entry",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/time_entries",
+            "description": "Project time entries",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/time_entries/new",
+            "description": "New project time entry",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/time_entries/imports/new",
+            "description": "Import time entries",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 6,
+        "auth_required_routes": 4,
+        "xhr_routes": 0
+      },
+      "watchers_controller": {
+        "display_name": "Watchers",
+        "routes": [
+          {
+            "method": "POST",
+            "path": "/watchers",
+            "description": "Add watcher",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "DELETE",
+            "path": "/watchers/:id",
+            "description": "Remove watcher",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "GET",
+            "path": "/watchers/autocomplete_for_user",
+            "description": "Autocomplete watchers",
+            "requires_auth": true,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/watchers/watch",
+            "description": "Watch issue",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "DELETE",
+            "path": "/watchers/unwatch",
+            "description": "Unwatch issue",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": false
+          }
+        ],
+        "total_routes": 5,
+        "auth_required_routes": 5,
+        "xhr_routes": 1
+      },
+      "workflows_controller": {
+        "display_name": "Workflows",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/workflows",
+            "description": "List workflows",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/workflows/edit",
+            "description": "Edit workflow",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/workflows/permissions",
+            "description": "Workflow permissions",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/workflows/copy",
+            "description": "Copy workflow",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 4,
+        "auth_required_routes": 4,
+        "xhr_routes": 0
+      },
+      "roles_controller": {
+        "display_name": "Roles",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/roles",
+            "description": "List roles",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/roles/new",
+            "description": "New role form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/roles",
+            "description": "Create role",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "GET",
+            "path": "/roles/:id",
+            "description": "Show role",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Role.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/roles/:id/edit",
+            "description": "Edit role",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Role.first",
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 5,
+        "auth_required_routes": 5,
+        "xhr_routes": 0
+      },
+      "search_controller": {
+        "display_name": "Search",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/search",
+            "description": "Global search",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/search",
+            "description": "Project search",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 0
+      },
+      "settings_controller": {
+        "display_name": "Settings",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/settings",
+            "description": "Application settings",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/settings/edit",
+            "description": "Edit settings",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/settings/plugin/:id",
+            "description": "Plugin settings",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 3,
+        "xhr_routes": 0
+      },
+      "trackers_controller": {
+        "display_name": "Trackers",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/trackers",
+            "description": "List trackers",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/trackers/new",
+            "description": "New tracker form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/trackers",
+            "description": "Create tracker",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/trackers/:id/edit",
+            "description": "Edit tracker",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 4,
+        "auth_required_routes": 4,
+        "xhr_routes": 0
+      },
+      "comments_controller": {
+        "display_name": "Comments",
+        "routes": [
+          {
+            "method": "POST",
+            "path": "/news/:news_id/comments",
+            "description": "Create comment",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/comments/:id",
+            "description": "Delete comment",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "custom_field_enumerations_controller": {
+        "display_name": "Custom_Field_Enumerations",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/custom_fields/:custom_field_id/enumerations",
+            "description": "List CF enumerations",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/custom_fields/:custom_field_id/enumerations",
+            "description": "Create CF enumeration",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "gantts_controller": {
+        "display_name": "Gantts",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues/gantt",
+            "description": "Issues Gantt chart",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issues/gantt",
+            "description": "Project Gantt chart",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 0
+      },
+      "principal_memberships_controller": {
+        "display_name": "Principal_Memberships",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/users/:user_id/memberships",
+            "description": "User memberships",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/groups/:group_id/memberships",
+            "description": "Group memberships",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/users/:user_id/memberships",
+            "description": "Add user membership",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 3,
+        "xhr_routes": 0
+      },
+      "project_enumerations_controller": {
+        "display_name": "Project_Enumerations",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/enumerations",
+            "description": "Project enumerations",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PUT",
+            "path": "/projects/ecookbook/enumerations",
+            "description": "Update project enumerations",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "wikis_controller": {
+        "display_name": "Wikis",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/wiki",
+            "description": "Project wiki",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/projects/ecookbook/wiki",
+            "description": "Create wiki",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/projects/ecookbook/wiki",
+            "description": "Delete wiki",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "projects_controller": {
+        "display_name": "Projects",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects",
+            "description": "List projects",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook",
+            "description": "Show project",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/new",
+            "description": "New project form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/projects",
+            "description": "Create project",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/settings",
+            "description": "Project settings",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 5,
+        "auth_required_routes": 3,
+        "xhr_routes": 0
+      },
+      "issues_controller": {
+        "display_name": "Issues",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues",
+            "description": "List issues",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issues",
+            "description": "Project issues",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issues/new",
+            "description": "New issue form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/projects/ecookbook/issues",
+            "description": "Create issue",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/issues/:id",
+            "description": "Show issue",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Issue.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/issues/:id/edit",
+            "description": "Edit issue",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Issue.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/issues/context_menu",
+            "description": "Issues context menu",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 7,
+        "auth_required_routes": 3,
+        "xhr_routes": 1
+      },
+      "members_controller": {
+        "display_name": "Members",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/memberships",
+            "description": "Project members",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/memberships/new",
+            "description": "New membership form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/projects/ecookbook/memberships",
+            "description": "Add member",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "news_controller": {
+        "display_name": "News",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/news",
+            "description": "All news",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/news",
+            "description": "Project news",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/news/new",
+            "description": "New news form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/projects/ecookbook/news",
+            "description": "Create news",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/news/:id",
+            "description": "Show news",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "News.first",
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 5,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "boards_controller": {
+        "display_name": "Boards",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/boards",
+            "description": "Project boards",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/boards/new",
+            "description": "New board form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/boards/:id",
+            "description": "Show board",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Board.first",
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "documents_controller": {
+        "display_name": "Documents",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/documents",
+            "description": "Project documents",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/documents/new",
+            "description": "New document form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/documents/:id",
+            "description": "Show document",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Document.first",
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "files_controller": {
+        "display_name": "Files",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/files",
+            "description": "Project files",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/files/new",
+            "description": "Upload file form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "queries_controller": {
+        "display_name": "Queries",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/queries",
+            "description": "List queries",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/queries/new",
+            "description": "New query form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/queries/new",
+            "description": "New project query",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "versions_controller": {
+        "display_name": "Versions",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/roadmap",
+            "description": "Project roadmap",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/versions",
+            "description": "Project versions",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/versions/new",
+            "description": "New version form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/versions/:id",
+            "description": "Show version",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Version.first",
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 4,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "reports_controller": {
+        "display_name": "Reports",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issues/report",
+            "description": "Issue report",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issues/report/:detail",
+            "description": "Detailed report",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 0
+      },
+      "activities_controller": {
+        "display_name": "Activities",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/activity",
+            "description": "Global activity",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/activity",
+            "description": "Project activity",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 0
+      },
+      "calendars_controller": {
+        "display_name": "Calendars",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues/calendar",
+            "description": "Issues calendar",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issues/calendar",
+            "description": "Project calendar",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 0
+      },
+      "auto_completes_controller": {
+        "display_name": "Auto_Completes",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues/auto_complete",
+            "description": "Issue autocomplete",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/wiki_pages/auto_complete",
+            "description": "Wiki autocomplete",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 2
+      },
+      "context_menus_controller": {
+        "display_name": "Context_Menus",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues/context_menu",
+            "description": "Issues context menu",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/time_entries/context_menu",
+            "description": "Time entries context menu",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 2
+      },
+      "previews_controller": {
+        "display_name": "Previews",
+        "routes": [
+          {
+            "method": "POST",
+            "path": "/preview/text",
+            "description": "Preview text",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/issues/preview",
+            "description": "Preview issue",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/news/preview",
+            "description": "Preview news",
+            "requires_auth": false,
+            "requires_xhr": true,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 0,
+        "xhr_routes": 3
+      },
+      "imports_controller": {
+        "display_name": "Imports",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues/imports/new",
+            "description": "Import issues",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/users/imports/new",
+            "description": "Import users",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/time_entries/imports/new",
+            "description": "Import time entries",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 3,
+        "xhr_routes": 0
+      },
+      "journals_controller": {
+        "display_name": "Journals",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues/changes",
+            "description": "Issue changes feed",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/journals/:id/edit",
+            "description": "Edit journal",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "messages_controller": {
+        "display_name": "Messages",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/boards/:board_id/topics/new",
+            "description": "New topic form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": "Board.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/boards/:board_id/topics",
+            "description": "Create topic",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": "Board.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/boards/:board_id/topics/:id",
+            "description": "Show topic",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Message.first",
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "issue_relations_controller": {
+        "display_name": "Issue_Relations",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issues/:issue_id/relations",
+            "description": "Issue relations",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": "Issue.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/issues/:issue_id/relations",
+            "description": "Create relation",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": "Issue.first",
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "attachments_controller": {
+        "display_name": "Attachments",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/attachments/:id",
+            "description": "Download attachment",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Attachment.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/attachments/:id/:filename",
+            "description": "Download attachment with name",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": "Attachment.first",
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/attachments/:id",
+            "description": "Delete attachment",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "email_addresses_controller": {
+        "display_name": "Email_Addresses",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/users/:user_id/email_addresses",
+            "description": "User email addresses",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/users/:user_id/email_addresses",
+            "description": "Add email address",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": true,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "repositories_controller": {
+        "display_name": "Repositories",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/repositories/new",
+            "description": "New repository form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/repository",
+            "description": "Project repository",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "admin_controller": {
+        "display_name": "Admin",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/admin",
+            "description": "Admin dashboard",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/admin/projects",
+            "description": "Admin projects",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/admin/plugins",
+            "description": "Admin plugins",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/admin/info",
+            "description": "Admin info",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 4,
+        "auth_required_routes": 4,
+        "xhr_routes": 0
+      },
+      "groups_controller": {
+        "display_name": "Groups",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/groups",
+            "description": "List groups",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/groups/new",
+            "description": "New group form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/groups",
+            "description": "Create group",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 3,
+        "xhr_routes": 0
+      },
+      "custom_fields_controller": {
+        "display_name": "Custom_Fields",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/custom_fields",
+            "description": "List custom fields",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/custom_fields/new",
+            "description": "New custom field form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "enumerations_controller": {
+        "display_name": "Enumerations",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/enumerations",
+            "description": "List enumerations",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/enumerations/new",
+            "description": "New enumeration form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "issue_statuses_controller": {
+        "display_name": "Issue_Statuses",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/issue_statuses",
+            "description": "List issue statuses",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/issue_statuses/new",
+            "description": "New status form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "auth_sources_controller": {
+        "display_name": "Auth_Sources",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/auth_sources",
+            "description": "List auth sources",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/auth_sources/new",
+            "description": "New auth source form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 2,
+        "xhr_routes": 0
+      },
+      "issue_categories_controller": {
+        "display_name": "Issue_Categories",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issue_categories",
+            "description": "Project categories",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/issue_categories/new",
+            "description": "New category form",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      },
+      "welcome_controller": {
+        "display_name": "Welcome",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/",
+            "description": "Home page",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/robots.txt",
+            "description": "Robots.txt",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 2,
+        "auth_required_routes": 0,
+        "xhr_routes": 0
+      },
+      "account_controller": {
+        "display_name": "Account",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/login",
+            "description": "Login page",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/login",
+            "description": "Login submit",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/logout",
+            "description": "Logout",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/account/register",
+            "description": "Register page",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/account/lost_password",
+            "description": "Lost password page",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 5,
+        "auth_required_routes": 0,
+        "xhr_routes": 0
+      },
+      "my_controller": {
+        "display_name": "My",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/my/account",
+            "description": "My account",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/my/page",
+            "description": "My page",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/my/password",
+            "description": "Change password",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 3,
+        "xhr_routes": 0
+      },
+      "wiki_controller": {
+        "display_name": "Wiki",
+        "routes": [
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/wiki",
+            "description": "Wiki index",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/wiki/:page",
+            "description": "Wiki page",
+            "requires_auth": false,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/projects/ecookbook/wiki/:page/edit",
+            "description": "Edit wiki page",
+            "requires_auth": true,
+            "requires_xhr": false,
+            "has_params": false,
+            "fixture_lookup": null,
+            "safe_for_coverage": true
+          }
+        ],
+        "total_routes": 3,
+        "auth_required_routes": 1,
+        "xhr_routes": 0
+      }
+    }
+  },
+  "generated_tests": {
+    "total": 20,
+    "tests": [
+      {
+        "name": "time_entries index anonymous",
+        "controller": "timelog_controller",
+        "route": "/time_entries",
+        "method": "GET",
+        "requires_auth": false,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "time_entries new requires login",
+        "controller": "timelog_controller",
+        "route": "/time_entries/new",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "project ecookbook time_entries index anonymous",
+        "controller": "timelog_controller",
+        "route": "/projects/ecookbook/time_entries",
+        "method": "GET",
+        "requires_auth": false,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "project ecookbook time_entries new requires login",
+        "controller": "timelog_controller",
+        "route": "/projects/ecookbook/time_entries/new",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "users index requires login",
+        "controller": "users_controller",
+        "route": "/users",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "user show anonymous",
+        "controller": "users_controller",
+        "route": "/users/#{user.id}",
+        "method": "GET",
+        "requires_auth": false,
+        "uses_fixture": true,
+        "uses_xhr": false
+      },
+      {
+        "name": "users new requires login",
+        "controller": "users_controller",
+        "route": "/users/new",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "user edit requires login",
+        "controller": "users_controller",
+        "route": "/users/#{user.id}/edit",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": true,
+        "uses_xhr": false
+      },
+      {
+        "name": "watchers autocomplete_for_user requires login xhr",
+        "controller": "watchers_controller",
+        "route": "/watchers/autocomplete_for_user",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": true
+      },
+      {
+        "name": "issues index anonymous",
+        "controller": "issues_controller",
+        "route": "/issues",
+        "method": "GET",
+        "requires_auth": false,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "project ecookbook issues index anonymous",
+        "controller": "projects_controller",
+        "route": "/projects/ecookbook/issues",
+        "method": "GET",
+        "requires_auth": false,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "project ecookbook issues new requires login",
+        "controller": "projects_controller",
+        "route": "/projects/ecookbook/issues/new",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "issue show anonymous",
+        "controller": "issues_controller",
+        "route": "/issues/#{issue.id}",
+        "method": "GET",
+        "requires_auth": false,
+        "uses_fixture": true,
+        "uses_xhr": false
+      },
+      {
+        "name": "workflows index requires login",
+        "controller": "workflows_controller",
+        "route": "/workflows",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "roles index requires login",
+        "controller": "roles_controller",
+        "route": "/roles",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "roles new requires login",
+        "controller": "roles_controller",
+        "route": "/roles/new",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "role show requires login",
+        "controller": "roles_controller",
+        "route": "/roles/#{role.id}",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": true,
+        "uses_xhr": false
+      },
+      {
+        "name": "role edit requires login",
+        "controller": "roles_controller",
+        "route": "/roles/#{role.id}/edit",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": true,
+        "uses_xhr": false
+      },
+      {
+        "name": "trackers index requires login",
+        "controller": "trackers_controller",
+        "route": "/trackers",
+        "method": "GET",
+        "requires_auth": true,
+        "uses_fixture": false,
+        "uses_xhr": false
+      },
+      {
+        "name": "search with query anonymous",
+        "controller": "search_controller",
+        "route": "/search?q=test",
+        "method": "GET",
+        "requires_auth": false,
+        "uses_fixture": false,
+        "uses_xhr": false
+      }
+    ],
+    "by_controller": {
+      "timelog_controller": 4,
+      "issues_controller": 2,
+      "users_controller": 4,
+      "watchers_controller": 1,
+      "workflows_controller": 1,
+      "search_controller": 1,
+      "projects_controller": 2,
+      "roles_controller": 4,
+      "trackers_controller": 1
+    }
+  },
+  "coverage_gaps": {
+    "total": 3,
+    "gaps": [
+      {
+        "controller": "repositories_controller",
+        "reason": "Requires VCS repository setup (current: 65.8%)",
+        "recommendation": "Configure Git/SVN test repositories or mock VCS integration",
+        "priority": "LOW"
+      },
+      {
+        "controller": "context_menus_controller",
+        "reason": "Requires XHR headers (current: 79.7%)",
+        "recommendation": "Add more XHR-based tests with proper headers",
+        "priority": "MEDIUM"
+      },
+      {
+        "controller": "redmine_plugin_controller_generator",
+        "reason": "Plugin-related controller (current: 0.0%)",
+        "recommendation": "Install test plugins or exclude from coverage target",
+        "priority": "LOW"
+      }
+    ],
+    "by_priority": {
+      "HIGH": 0,
+      "MEDIUM": 1,
+      "LOW": 2,
+      "SKIP": 0
+    }
+  },
+  "filtering": {
+    "excluded_controllers": [
+      "twofa_backup_codes_controller",
+      "sys_controller",
+      "mail_handler_controller",
+      "twofa_controller",
+      "application_controller"
+    ],
+    "excluded_patterns": [
+      "_helper.rb",
+      "concerns/"
+    ],
+    "exclusion_reasons": {
+      "application_controller": "Base controller, not directly accessible",
+      "sys_controller": "System/internal API, not user-facing",
+      "mail_handler_controller": "Email processing, requires mail server",
+      "twofa_controller": "Two-factor auth, requires special setup",
+      "twofa_backup_codes_controller": "2FA backup codes, requires 2FA enabled"
+    },
+    "route_filtering": {
+      "safe_for_coverage": "Routes marked safe_for_coverage=False are excluded (POST/DELETE without params)",
+      "requires_xhr": "Routes requiring XHR headers are handled specially",
+      "fixture_lookup": "Routes with dynamic IDs use fixture lookups instead of hardcoded values"
+    },
+    "priority_scoring": {
+      "formula": "priority_score = (1 - coverage%) * 0.7 + (lines/300) * 0.3",
+      "labels": {
+        "CRITICAL": "0% coverage AND >100 lines",
+        "HIGH": "<20% coverage",
+        "MEDIUM": "20-50% coverage",
+        "LOW": "50-80% coverage",
+        "SKIP": ">80% coverage"
+      }
+    },
+    "coverage_thresholds": {
+      "min_lines": 25,
+      "well_covered_threshold": 70.0,
+      "max_priority_controllers": 12
+    }
+  }
+}

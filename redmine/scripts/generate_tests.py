@@ -1,19 +1,38 @@
-import os
-from pathlib import Path
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
-load_dotenv()
+"""
+Coverage-Driven Test Generator for Redmine
 
+This script generates Ruby Minitest integration tests using an LLM,
+with prompts focused on controllers that need coverage improvement.
+
+Usage:
+    python generate_tests.py                    # Use coverage-driven prompt
+    python generate_tests.py --full             # Use full prompt (ignore coverage)
+    python generate_tests.py --focus users,timelog  # Focus on specific controllers
+    python generate_tests.py --report           # Print coverage report only
+"""
+import os
+import sys
+import argparse
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 REDMINE_ROOT = Path(__file__).resolve().parents[1]
 OUT_FILE = REDMINE_ROOT / "test" / "generated" / "generated_suite_test.rb"
 
-PROMPT = """
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from core.prompt_builder import PromptBuilder
+from core.coverage_analyzer import CoverageAnalyzer
+
+
+FULL_PROMPT = """
 You are generating Ruby Minitest integration tests for a Redmine (Rails) app.
 
 OUTPUT FORMAT (STRICT):
 - Output ONLY a single Ruby file (no markdown, no explanations).
 - First non-comment line must be exactly: require_relative '../test_helper'
-- Define exactly ONE test class inheriting from ActionDispatch::IntegrationTest.
+- Define exactly ONE test class inheriting from Redmine::IntegrationTest.
+- MUST include 'fixtures :all' right after the class definition.
 - Use only HTTP requests (get/post/patch/delete) and follow_redirect! when needed.
 - Do NOT use Capybara, Selenium, or JS-based assertions.
 
@@ -34,7 +53,7 @@ CRITICAL REDMINE BEHAVIOR RULES (MUST FOLLOW):
   - If response.redirect?, call follow_redirect! (repeat up to 3 times).
   - Then assert that response.status is in an allowed set:
     - Default allowed statuses: [200, 403, 404]
-    - For XHR/JS endpoints and known “Not Acceptable” cases: [200, 403, 404, 406]
+    - For XHR/JS endpoints and known "Not Acceptable" cases: [200, 403, 404, 406]
 
 - IMPORTANT: Only assert HTML selectors when:
     response.status == 200
@@ -181,36 +200,138 @@ Generate the Ruby test file now.
 """
 
 
-
-def main():
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        raise SystemExit("Missing OPENAI_API_KEY env var. Set it before running.")
-
-    llm = ChatOpenAI(
-        model="gpt-4.1-mini",  # good balance for codegen/cost
-        temperature=0
-    )
-
-    ruby_code = llm.invoke(PROMPT).content
-
-    # --- quick sanity checks so bad generations fail fast ---
+def validate_generated_code(ruby_code: str) -> None:
+    """Validate the generated Ruby code meets basic requirements."""
     if "```" in ruby_code:
         raise SystemExit("Model returned markdown fences. Refine prompt / strip fences.")
 
-    if "require_relative '../test_helper'" not in ruby_code and 'require_relative "../test_helper"' not in ruby_code:
+    if ("require_relative '../test_helper'" not in ruby_code and 
+        'require_relative "../test_helper"' not in ruby_code):
         raise SystemExit("Generated code is missing require_relative '../test_helper'.")
 
-    if "ActionDispatch::IntegrationTest" not in ruby_code:
-        raise SystemExit("Generated code is not an IntegrationTest.")
+    if "IntegrationTest" not in ruby_code:
+        raise SystemExit("Generated code is not an IntegrationTest (must contain 'IntegrationTest').")
 
     if "test " not in ruby_code:
         raise SystemExit("No Minitest test blocks found.")
 
 
+def print_coverage_report() -> None:
+    """Print coverage report and exit."""
+    analyzer = CoverageAnalyzer(REDMINE_ROOT)
+    if analyzer.load_coverage():
+        analyzer.print_report()
+    else:
+        print("No coverage data found. Run tests first to generate coverage.")
+        sys.exit(1)
+
+
+def generate_tests(prompt: str, model: str = "gpt-4.1-mini") -> str:
+    """Generate tests using the LLM."""
+    # Lazy imports to avoid loading heavy dependencies for --report mode
+    from dotenv import load_dotenv
+    from langchain_openai import ChatOpenAI
+    
+    load_dotenv()
+    
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise SystemExit("Missing OPENAI_API_KEY env var. Set it before running.")
+
+    llm = ChatOpenAI(model=model, temperature=0)
+    return llm.invoke(prompt).content
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Generate Redmine integration tests using coverage-driven prompts"
+    )
+    parser.add_argument(
+        "--full",
+        action="store_true",
+        help="Use full prompt instead of coverage-driven prompt"
+    )
+    parser.add_argument(
+        "--focus",
+        type=str,
+        help="Comma-separated list of controllers to focus on (e.g., 'users,timelog')"
+    )
+    parser.add_argument(
+        "--report",
+        action="store_true",
+        help="Print coverage report and exit"
+    )
+    parser.add_argument(
+        "--test-count",
+        type=int,
+        default=20,
+        help="Number of test blocks to generate (default: 20)"
+    )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default="gpt-4.1-mini",
+        help="OpenAI model to use (default: gpt-4.1-mini)"
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print prompt without generating tests"
+    )
+    
+    args = parser.parse_args()
+    
+    if args.report:
+        print_coverage_report()
+        return
+    
+    builder = PromptBuilder(REDMINE_ROOT)
+    
+    if args.full:
+        print("Using FULL prompt (ignoring coverage data)...")
+        prompt = FULL_PROMPT
+    elif args.focus:
+        focus_list = [f"{c.strip()}_controller" for c in args.focus.split(",")]
+        print(f"Focusing on controllers: {focus_list}")
+        prompt = builder.build_iterative_prompt(
+            focus_controllers=focus_list,
+            test_count=args.test_count,
+        )
+    else:
+        print("Building coverage-driven prompt...")
+        prompt = builder.build_prompt(
+            max_priority_controllers=12,
+            test_count=args.test_count,
+            auth_test_count=max(6, args.test_count // 3),
+        )
+        
+        summary = builder.get_coverage_summary()
+        if summary.get("available"):
+            print(f"\nCoverage Summary:")
+            print(f"  Total Controllers: {summary['total_controllers']}")
+            print(f"  Zero Coverage: {summary['zero_coverage_count']}")
+            print(f"  Overall Coverage: {summary['overall_coverage_percent']:.1f}%")
+            print()
+    
+    if args.dry_run:
+        print("=" * 70)
+        print("GENERATED PROMPT (dry run):")
+        print("=" * 70)
+        print(prompt)
+        return
+    
+    print(f"Generating tests with {args.model}...")
+    ruby_code = generate_tests(prompt, model=args.model)
+    
+    validate_generated_code(ruby_code)
+    
     (REDMINE_ROOT / "test" / "generated").mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(ruby_code, encoding="utf-8")
     print(f"Wrote: {OUT_FILE}")
+    
+    test_count = ruby_code.count("test \"") + ruby_code.count("test '")
+    print(f"Generated {test_count} test blocks.")
+
 
 if __name__ == "__main__":
     main()
