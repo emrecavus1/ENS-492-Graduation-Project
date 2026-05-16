@@ -58,11 +58,11 @@ class GeneratedSuiteTest < Redmine::IntegrationTest
     assert_response :success
   end
 
-  # AUTHENTICATED TEST - watchers require project context and specific permission
+  # AUTHENTICATED TEST - always log_user first! with XHR headers
   test "watchers autocomplete_for_user requires login" do
     log_user('admin', 'admin')  # MUST login first for /watchers/autocomplete_for_user
     get '/watchers/autocomplete_for_user', xhr: true
-    assert [200, 403, 404].include?(response.status)
+    assert_response :success
   end
 
   # AUTHENTICATED TEST - always log_user first!
@@ -79,12 +79,12 @@ class GeneratedSuiteTest < Redmine::IntegrationTest
     assert_response :success
   end
 
-  # AUTHENTICATED TEST - role show returns 406 without proper accept header
+  # AUTHENTICATED TEST - always log_user first!
   test "role show requires login" do
     log_user('admin', 'admin')  # MUST login first for /roles/:id
     role = Role.first
     get "/roles/#{role.id}"
-    assert [200, 302, 406].include?(response.status)
+    assert_response :success
   end
 
   # AUTHENTICATED TEST - always log_user first!
@@ -158,14 +158,15 @@ class GeneratedSuiteTest < Redmine::IntegrationTest
   end
 
   # ANONYMOUS TEST - no login needed
-  test "search with query anonymous" do
-    get '/search?q=test'
+  test "time entries list anonymous again" do
+    get '/time_entries'
     assert [200, 302, 403].include?(response.status)
   end
 
-  # ANONYMOUS TEST - no login needed
-  test "issues gantt anonymous" do
-    get '/issues/gantt'
-    assert [200, 302, 403].include?(response.status)
+  # AUTHENTICATED TEST - always log_user first!
+  test "settings index requires login" do
+    log_user('admin', 'admin')  # MUST login first for /settings
+    get '/settings'
+    assert_response :success
   end
 end

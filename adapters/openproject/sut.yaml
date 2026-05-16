@@ -1,0 +1,15 @@
+type: openproject
+base_url: "http://localhost:3000"
+project_dir: "openproject_clean"
+
+auth:
+  method: session
+  admin:
+    username: "admin"
+    password: "admin"
+
+test:
+  command: "bundle exec rspec"
+  coverage_command: "COVERAGE=1 bundle exec rspec"
+  generated_tests_path: "spec/generated/"
+  coverage_output: "coverage/.resultset.json"

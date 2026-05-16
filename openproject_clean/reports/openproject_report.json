@@ -1,0 +1,450 @@
+{
+  "generated_at": "2026-05-01T19:44:35.474633",
+  "coverage": {
+    "simplecov_overall": {
+      "available": true,
+      "total_lines": 118406,
+      "covered_lines": 23361,
+      "coverage_percent": 19.729574514804995
+    },
+    "focused_files": {
+      "available": true,
+      "total_files": 12,
+      "controller_files": 4,
+      "api_files": 8,
+      "total_lines": 1167,
+      "covered_lines": 488,
+      "overall_coverage_percent": 41.82,
+      "zero_coverage_count": 0,
+      "zero_coverage_files": [],
+      "path_patterns": [
+        "/app/controllers/account_controller.rb",
+        "/app/controllers/homescreen_controller.rb",
+        "/app/controllers/projects_controller.rb",
+        "/app/controllers/statuses_controller.rb",
+        "/lib/api/root_api.rb",
+        "/lib/api/root.rb",
+        "/lib/api/v3/projects/projects_api.rb",
+        "/lib/api/v3/projects/project_representer.rb",
+        "/lib/api/v3/work_packages/work_packages_api.rb",
+        "/lib/api/v3/work_packages/work_package_representer.rb",
+        "/lib/api/v3/users/users_api.rb",
+        "/lib/api/v3/users/user_representer.rb"
+      ]
+    },
+    "priority_files": [
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/app/controllers/account_controller.rb",
+        "category": "controllers",
+        "coverage": 24.24,
+        "lines": 231,
+        "priority": "MEDIUM"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/v3/work_packages/work_package_representer.rb",
+        "category": "api_lib",
+        "coverage": 41.3,
+        "lines": 276,
+        "priority": "MEDIUM"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/app/controllers/projects_controller.rb",
+        "category": "controllers",
+        "coverage": 32.45,
+        "lines": 151,
+        "priority": "MEDIUM"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/v3/users/user_representer.rb",
+        "category": "api_lib",
+        "coverage": 36.17,
+        "lines": 94,
+        "priority": "MEDIUM"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/app/controllers/statuses_controller.rb",
+        "category": "controllers",
+        "coverage": 30.0,
+        "lines": 40,
+        "priority": "MEDIUM"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/v3/projects/project_representer.rb",
+        "category": "api_lib",
+        "coverage": 50.53,
+        "lines": 95,
+        "priority": "LOW"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/root_api.rb",
+        "category": "api_lib",
+        "coverage": 56.0,
+        "lines": 125,
+        "priority": "LOW"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/v3/users/users_api.rb",
+        "category": "api_lib",
+        "coverage": 62.26,
+        "lines": 53,
+        "priority": "LOW"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/root.rb",
+        "category": "api_lib",
+        "coverage": 70.0,
+        "lines": 20,
+        "priority": "LOW"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/v3/work_packages/work_packages_api.rb",
+        "category": "api_lib",
+        "coverage": 73.81,
+        "lines": 42,
+        "priority": "LOW"
+      },
+      {
+        "file_path": "/Users/emrecavus/Desktop/ENS 491-2/openproject_clean/lib/api/v3/projects/projects_api.rb",
+        "category": "api_lib",
+        "coverage": 78.26,
+        "lines": 23,
+        "priority": "LOW"
+      }
+    ]
+  },
+  "api_documentation": {
+    "total_resources": 7,
+    "total_endpoints": 15,
+    "authenticated_endpoints": 9,
+    "public_endpoints": 6,
+    "safe_endpoints": 14,
+    "by_method": {
+      "GET": 14,
+      "POST": 1,
+      "PATCH": 0,
+      "DELETE": 0
+    }
+  },
+  "generated_tests": {
+    "total": 36,
+    "tests": [
+      {
+        "name": "GET / (public)",
+        "endpoint": "/",
+        "method": "GET",
+        "resource": "home",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /login (public)",
+        "endpoint": "/login",
+        "method": "GET",
+        "resource": "home",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /projects (public)",
+        "endpoint": "/projects",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /projects/:id (public)",
+        "endpoint": "/projects/:id",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /projects/:id/settings",
+        "endpoint": "/projects/:id/settings",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /statuses",
+        "endpoint": "/statuses",
+        "method": "GET",
+        "resource": "admin_statuses",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3 (public)",
+        "endpoint": "/api/v3",
+        "method": "GET",
+        "resource": "api_v3_root",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/configuration (public)",
+        "endpoint": "/api/v3/configuration",
+        "method": "GET",
+        "resource": "api_v3_root",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /api/v3/projects",
+        "endpoint": "/api/v3/projects",
+        "method": "GET",
+        "resource": "api_v3_projects",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/projects/:id",
+        "endpoint": "/api/v3/projects/:id",
+        "method": "GET",
+        "resource": "api_v3_projects",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /api/v3/work_packages",
+        "endpoint": "/api/v3/work_packages",
+        "method": "GET",
+        "resource": "api_v3_work_packages",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/work_packages/:id",
+        "endpoint": "/api/v3/work_packages/:id",
+        "method": "GET",
+        "resource": "api_v3_work_packages",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /api/v3/users/me",
+        "endpoint": "/api/v3/users/me",
+        "method": "GET",
+        "resource": "api_v3_users",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/users/:id",
+        "endpoint": "/api/v3/users/:id",
+        "method": "GET",
+        "resource": "api_v3_users",
+        "requires_auth": false
+      },
+      {
+        "name": "GET / (public)",
+        "endpoint": "/",
+        "method": "GET",
+        "resource": "home",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /login (public)",
+        "endpoint": "/login",
+        "method": "GET",
+        "resource": "home",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /statuses (authenticated)",
+        "endpoint": "/statuses",
+        "method": "GET",
+        "resource": "admin_statuses",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /projects (public)",
+        "endpoint": "/projects",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /projects/:id (public)",
+        "endpoint": "/projects/:id",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /projects/:id/settings",
+        "endpoint": "/projects/:id/settings",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /api/v3/users/me",
+        "endpoint": "/api/v3/users/me",
+        "method": "GET",
+        "resource": "api_v3_users",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/users/:id",
+        "endpoint": "/api/v3/users/:id",
+        "method": "GET",
+        "resource": "api_v3_users",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /api/v3/work_packages",
+        "endpoint": "/api/v3/work_packages",
+        "method": "GET",
+        "resource": "api_v3_work_packages",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/work_packages/:id",
+        "endpoint": "/api/v3/work_packages/:id",
+        "method": "GET",
+        "resource": "api_v3_work_packages",
+        "requires_auth": false
+      },
+      {
+        "name": "GET / (public)",
+        "endpoint": "/",
+        "method": "GET",
+        "resource": "home",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /login (public)",
+        "endpoint": "/login",
+        "method": "GET",
+        "resource": "home",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /statuses (authenticated)",
+        "endpoint": "/statuses",
+        "method": "GET",
+        "resource": "admin_statuses",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /projects (public)",
+        "endpoint": "/projects",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /projects/:id (public)",
+        "endpoint": "/projects/:id",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /projects/:id/settings",
+        "endpoint": "/projects/:id/settings",
+        "method": "GET",
+        "resource": "projects",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3 (public)",
+        "endpoint": "/api/v3",
+        "method": "GET",
+        "resource": "api_v3_root",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/projects (public)",
+        "endpoint": "/api/v3/projects",
+        "method": "GET",
+        "resource": "api_v3_projects",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /api/v3/users/me",
+        "endpoint": "/api/v3/users/me",
+        "method": "GET",
+        "resource": "api_v3_users",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/users/:id",
+        "endpoint": "/api/v3/users/:id",
+        "method": "GET",
+        "resource": "api_v3_users",
+        "requires_auth": true
+      },
+      {
+        "name": "GET /api/v3/work_packages",
+        "endpoint": "/api/v3/work_packages",
+        "method": "GET",
+        "resource": "api_v3_work_packages",
+        "requires_auth": false
+      },
+      {
+        "name": "GET /api/v3/work_packages/:id",
+        "endpoint": "/api/v3/work_packages/:id",
+        "method": "GET",
+        "resource": "api_v3_work_packages",
+        "requires_auth": false
+      }
+    ]
+  },
+  "resource_coverage": [
+    {
+      "name": "home",
+      "total_endpoints": 2,
+      "tested_endpoints": 2,
+      "covered_percent": 100.0,
+      "auth_required": 0,
+      "safe_endpoints": 2
+    },
+    {
+      "name": "projects",
+      "total_endpoints": 3,
+      "tested_endpoints": 3,
+      "covered_percent": 100.0,
+      "auth_required": 1,
+      "safe_endpoints": 3
+    },
+    {
+      "name": "admin_statuses",
+      "total_endpoints": 2,
+      "tested_endpoints": 1,
+      "covered_percent": 50.0,
+      "auth_required": 2,
+      "safe_endpoints": 1
+    },
+    {
+      "name": "api_v3_root",
+      "total_endpoints": 2,
+      "tested_endpoints": 2,
+      "covered_percent": 100.0,
+      "auth_required": 0,
+      "safe_endpoints": 2
+    },
+    {
+      "name": "api_v3_projects",
+      "total_endpoints": 2,
+      "tested_endpoints": 2,
+      "covered_percent": 100.0,
+      "auth_required": 2,
+      "safe_endpoints": 2
+    },
+    {
+      "name": "api_v3_work_packages",
+      "total_endpoints": 2,
+      "tested_endpoints": 2,
+      "covered_percent": 100.0,
+      "auth_required": 2,
+      "safe_endpoints": 2
+    },
+    {
+      "name": "api_v3_users",
+      "total_endpoints": 2,
+      "tested_endpoints": 2,
+      "covered_percent": 100.0,
+      "auth_required": 2,
+      "safe_endpoints": 2
+    }
+  ],
+  "coverage_gaps": [
+    {
+      "resource": "admin_statuses",
+      "reason": "Administrative routes need current_user with elevated permissions (current: 50.0%)",
+      "priority": "HIGH"
+    }
+  ]
+}

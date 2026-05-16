@@ -1,0 +1,450 @@
+{
+  "generated_at": "2026-03-29T00:38:55.283136",
+  "api_documentation": {
+    "total_resources": 15,
+    "total_endpoints": 46,
+    "public_endpoints": 17,
+    "authenticated_endpoints": 29,
+    "safe_endpoints": 40,
+    "by_method": {
+      "GET": 23,
+      "POST": 9,
+      "PATCH": 9,
+      "DELETE": 5
+    },
+    "resources": {
+      "products": {
+        "name": "products",
+        "base_path": "/api/v3/store/products",
+        "description": "Product catalog endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/products",
+            "description": "List all products",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/products/:id",
+            "description": "Get product details",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "taxons": {
+        "name": "taxons",
+        "base_path": "/api/v3/store/taxons",
+        "description": "Category/taxonomy endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/taxons",
+            "description": "List all taxons/categories",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/taxons/:id",
+            "description": "Get taxon details",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "cart": {
+        "name": "cart",
+        "base_path": "/api/v3/store/cart",
+        "description": "Shopping cart endpoints",
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/api/v3/store/cart",
+            "description": "Create a new cart",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/cart",
+            "description": "Get current cart",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/cart",
+            "description": "Update cart",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/api/v3/store/cart",
+            "description": "Clear cart",
+            "requires_auth": true,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "POST",
+            "path": "/api/v3/store/cart/add_item",
+            "description": "Add item to cart",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/cart/set_quantity",
+            "description": "Set item quantity",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/api/v3/store/cart/remove_line_item/:id",
+            "description": "Remove item from cart",
+            "requires_auth": true,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "POST",
+            "path": "/api/v3/store/cart/apply_coupon_code",
+            "description": "Apply coupon code",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "checkout": {
+        "name": "checkout",
+        "base_path": "/api/v3/store/checkout",
+        "description": "Checkout flow endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/checkout",
+            "description": "Get checkout state",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/checkout",
+            "description": "Update checkout",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/checkout/next",
+            "description": "Advance checkout state",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/checkout/advance",
+            "description": "Advance to furthest state",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/checkout/complete",
+            "description": "Complete checkout",
+            "requires_auth": true,
+            "safe_for_coverage": false
+          }
+        ]
+      },
+      "account": {
+        "name": "account",
+        "base_path": "/api/v3/store/account",
+        "description": "User account endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/account",
+            "description": "Get current user account",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/account",
+            "description": "Update account",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/api/v3/store/account",
+            "description": "Create account (register)",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "account_orders": {
+        "name": "account_orders",
+        "base_path": "/api/v3/store/account/orders",
+        "description": "User order history endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/account/orders",
+            "description": "List user orders",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/account/orders/:id",
+            "description": "Get order details",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "account_addresses": {
+        "name": "account_addresses",
+        "base_path": "/api/v3/store/account/addresses",
+        "description": "User address book endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/account/addresses",
+            "description": "List user addresses",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/api/v3/store/account/addresses",
+            "description": "Create address",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/account/addresses/:id",
+            "description": "Update address",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/api/v3/store/account/addresses/:id",
+            "description": "Delete address",
+            "requires_auth": true,
+            "safe_for_coverage": false
+          }
+        ]
+      },
+      "account_credit_cards": {
+        "name": "account_credit_cards",
+        "base_path": "/api/v3/store/account/credit_cards",
+        "description": "Saved payment methods",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/account/credit_cards",
+            "description": "List saved cards",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "countries": {
+        "name": "countries",
+        "base_path": "/api/v3/store/countries",
+        "description": "Country data endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/countries",
+            "description": "List all countries",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/countries/:iso",
+            "description": "Get country by ISO code",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/countries/default",
+            "description": "Get default country",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "states": {
+        "name": "states",
+        "base_path": "/api/v3/store/states",
+        "description": "State/province data endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/states",
+            "description": "List all states",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "stores": {
+        "name": "stores",
+        "base_path": "/api/v3/store/store",
+        "description": "Store information endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/store",
+            "description": "Get current store info",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "menus": {
+        "name": "menus",
+        "base_path": "/api/v3/store/menus",
+        "description": "Navigation menu endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/menus",
+            "description": "List all menus",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/menus/:id",
+            "description": "Get menu details",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "pages": {
+        "name": "pages",
+        "base_path": "/api/v3/store/pages",
+        "description": "CMS pages endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/pages",
+            "description": "List all pages",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/pages/:id",
+            "description": "Get page details",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          }
+        ]
+      },
+      "wishlists": {
+        "name": "wishlists",
+        "base_path": "/api/v3/store/wishlists",
+        "description": "Wishlist endpoints",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v3/store/wishlists",
+            "description": "List user wishlists",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/api/v3/store/wishlists",
+            "description": "Create wishlist",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/wishlists/default",
+            "description": "Get default wishlist",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "GET",
+            "path": "/api/v3/store/wishlists/:token",
+            "description": "Get wishlist by token",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v3/store/wishlists/:token",
+            "description": "Update wishlist",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/api/v3/store/wishlists/:token",
+            "description": "Delete wishlist",
+            "requires_auth": true,
+            "safe_for_coverage": false
+          },
+          {
+            "method": "POST",
+            "path": "/api/v3/store/wishlists/:token/add_item",
+            "description": "Add item to wishlist",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "DELETE",
+            "path": "/api/v3/store/wishlists/:token/remove_item/:id",
+            "description": "Remove item from wishlist",
+            "requires_auth": true,
+            "safe_for_coverage": false
+          }
+        ]
+      },
+      "auth": {
+        "name": "auth",
+        "base_path": "/api/v3/store/auth",
+        "description": "Authentication endpoints",
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/api/v3/store/oauth/token",
+            "description": "Get OAuth token (login)",
+            "requires_auth": false,
+            "safe_for_coverage": true
+          },
+          {
+            "method": "POST",
+            "path": "/api/v3/store/oauth/revoke",
+            "description": "Revoke token (logout)",
+            "requires_auth": true,
+            "safe_for_coverage": true
+          }
+        ]
+      }
+    }
+  },
+  "generated_tests": {
+    "total": 0,
+    "tests": [],
+    "by_resource": {}
+  }
+}

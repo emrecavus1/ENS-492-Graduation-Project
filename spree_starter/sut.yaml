@@ -1,0 +1,38 @@
+# Spree Commerce - Subject Under Test Configuration
+name: spree_starter
+type: rails_api
+framework: rails
+test_framework: rspec
+coverage_tool: simplecov
+
+# Server configuration
+server:
+  base_url: http://localhost:3000
+  api_base: /api/v3/store
+
+# API configuration
+api:
+  version: v3
+  format: json
+  auth_type: oauth2
+  auth_endpoint: /api/v3/store/oauth/token
+
+# Test configuration
+test:
+  command: "bundle exec rspec"
+  coverage_command: "COVERAGE=1 bundle exec rspec"
+  generated_tests_path: spec/generated/
+  coverage_output: coverage/.resultset.json
+
+# Resources to test
+resources:
+  - products
+  - taxons
+  - cart
+  - checkout
+  - account
+  - countries
+  - stores
+  - menus
+  - pages
+  - wishlists

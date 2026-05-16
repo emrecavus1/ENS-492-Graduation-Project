@@ -6,6 +6,7 @@ import yaml
 from adapters.registry import get_adapter
 import adapters.redmine.adapter  # noqa: F401
 import adapters.saucedemo.adapter  # noqa: F401
+import adapters.openproject.adapter  # noqa: F401
 
 
 from core.schema import TestCase
@@ -43,7 +44,6 @@ def run_pipeline(sut_path: str) -> Dict[str, Any]:
     if not ok:
         raise RuntimeError(f"SUT healthcheck failed for type={adapter_type}")
 
-    # ✅ NEW: if the adapter supports suite mode, run it and return immediately
     run_suite = getattr(adapter, "run_suite", None)
     if callable(run_suite):
         suite_result = run_suite()
@@ -59,7 +59,6 @@ def run_pipeline(sut_path: str) -> Dict[str, Any]:
         }
 
 
-    # Fallback: placeholder per-testcase flow (works for adapters without suite runner)
     context = adapter.get_context_bundle()
     tests = generate_smoke_tests(context)
 
